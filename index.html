@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Universal File Toolkit</title>
+<meta name="description" content="Convert, compress, merge, and edit documents, images, audio, video, and archives — entirely in your browser. No uploads, no accounts." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="brand"><strong>[UFT]</strong> Universal File Toolkit</div>
+  <div class="header-note">runs 100% in your browser — nothing is uploaded</div>
+</header>
+
+<section class="hero">
+  <h1><span class="bracket">[</span>Drop it. Convert it.<span class="bracket">]</span></h1>
+  <p>One workbench for documents, images, audio, video, and archives.
+     Drop a file below and the tools that can handle it will light up.</p>
+
+  <div class="workbench" id="workbench" tabindex="0" role="button" aria-label="Drop a file here or click to choose one">
+    <div class="wb-icon">// WORKBENCH SURFACE</div>
+    <div class="wb-title">Drop a file here, or click to choose one</div>
+    <div class="wb-sub">PDF, DOCX, images, audio, video, ZIP — up to your browser's memory limit</div>
+    <input type="file" id="wb-file-input" />
+    <div class="wb-status" id="wb-status"></div>
+  </div>
+</section>
+
+<main class="stations" id="stations">
+  <!-- Station cards are rendered by js/app.js from the STATIONS config -->
+</main>
+
+<footer>
+  UFT v0.1 — see ROADMAP.md for what's next. All processing happens locally; closing the tab clears everything.
+</footer>
+
+<!-- ===================== Third-party libraries (CDN) ===================== -->
+<!-- PDF -->
+<script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+  if (window['pdfjsLib']) {
+    pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+  }
+</script>
+
+<!-- Word <-> PDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://unpkg.com/docx@8.5.0/build/index.js"></script>
+
+<!-- Archives -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+<!-- Audio / Video (ffmpeg.wasm) is loaded lazily on first use — see js/lib-loader.js -->
+
+<!-- ===================== App code ===================== -->
+<script src="js/lib-loader.js"></script>
+<script src="js/modules/images.js"></script>
+<script src="js/modules/pdf.js"></script>
+<script src="js/modules/docs.js"></script>
+<script src="js/modules/archive.js"></script>
+<script src="js/modules/audio.js"></script>
+<script src="js/modules/video.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
