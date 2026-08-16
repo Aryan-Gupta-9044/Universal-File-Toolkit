@@ -1,6 +1,0 @@
-print("hi")
-print("aryan gupta")
-print("Hello from Universal File Toolkit!")
-print("freer")
-print("hello world")
-print("what to do now")
