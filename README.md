@@ -20,12 +20,6 @@ This means it's a **static site** — deployable to GitHub Pages, Netlify,
 Vercel, S3, anywhere. `index.html` is the entire app; open it directly or
 serve the folder with any static server.
 
-```bash
-# from this folder
-python3 -m http.server 8080
-# then open http://localhost:8080
-```
-
 > Opening `index.html` directly via `file://` mostly works, but some browsers
 > block Web Workers (needed by pdf.js and ffmpeg.wasm) on `file://`. Serving
 > it over `http://localhost` avoids that entirely.
