@@ -76,5 +76,3 @@ loaded. See `ROADMAP.md` for the design tokens if you want to re-skin it.
   it needs a segmentation model (e.g. `@imgly/background-removal` or
   `MediaPipe`), which is a good "month two" addition.
 
-None of this is hidden from the user — the UI shows a short note on any
-tool with a caveat like this.
